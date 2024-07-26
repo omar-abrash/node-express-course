@@ -1,16 +1,16 @@
-// ::::::::::::::::::::::::::::::::::::::::::::::::
-// NodeJs Express.js Course
-// ::::::::::::::::::::::::::::::::::::::::::::::::
+// :::::::::::::::::::::::::::::::::::::::::::::::::
+// Node.js Express.js Course
+// :::::::::::::::::::::::::::::::::::::::::::::::::
 
-// After Install Project in your Device make these steps :
-// 1- run (npm install) in terminal , be sure your are in the same project directoy
-// 2- install ( Git ) in you device to can make move between branches :
+// After installing the project on your device, follow these steps:
+// 1. Run `npm install` in the terminal. Make sure you are in the project directory.
+// 2. Install Git on your device to move between branches.
 
-// This Course is Devided by Branches :
-// 1- lesson-01
-// 2- Lesson-02
-// 3- .....
+// This course is divided into branches:
+// 1. lesson-01
+// 2. lesson-02
+// 3. .....
 //    ........
 
-// You can move between branches using :
-// ( git switch branch - name ) Or ( git chckout branch-name )
+// You can move between branches using:
+// `git switch branch-name` or `git checkout branch-name`
