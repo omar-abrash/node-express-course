@@ -1,0 +1,21 @@
+{
+  "name": "node-express-course",
+  "version": "1.0.0",
+  "description": "NodeJs and ExpressJs Training Course ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJs",
+    "Express.Js",
+    "js"
+  ],
+  "author": "omar abrash",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
