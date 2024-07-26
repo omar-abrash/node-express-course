@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,8 +14,5 @@
     "trainig-course"
   ],
   "author": "omar abrash",
-  "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  }
+  "license": "ISC"
 }
