@@ -1,12 +1,11 @@
-// In the first lesson (lesson-one), we will cover the following topics:
-
-// 1- How to create a server with Node.js without frameworks like (Express.js).
-// 2- How Node.js handles routes and methods for incoming requests.
-// 3- Installing nodemon in (devDependencies) to modify code without restarting the server.
-// 4- create (.gitigone) file to avoid pushing not required files to github.
+// In lesson-02 we will discuss:
+// 1- How to work with the 'fs' module from Node.js to store users in a 'users.json' file.
+// 2- How to get all users and either render them as HTML or send them as data.
 
 // Import the http module from Node.js to create our server:
 const http = require("node:http");
+// Import the fs module from Node.js to work with the file system:
+const fs = require("node:fs");
 // Define our PORT
 const PORT = 8080;
 
@@ -18,11 +17,9 @@ const server = http.createServer((req, res) => {
   const URL = req.url;
   const METHOD = req.method;
 
-  // Now add all the (if statements) to catch URL && METHOD:
-
   // Handle GET requests to the root URL "/" (display a form for entering a username)
   if (URL === "/" && METHOD === "GET") {
-    console.log(`GET Method on "/" URL`);
+    console.log(`GET request received on "/" URL`);
     // Send an HTML form to the client with an input field for the username:
     // 1- Set response header to indicate that the response is HTML:
     res.setHeader("Content-Type", "text/html");
@@ -33,14 +30,13 @@ const server = http.createServer((req, res) => {
             <input type="submit" />
         </form>
     `);
-    return res.end(); // Return means end execution of any code after this (if statement)
+    return res.end(); // End the response for this request
   }
 
   // Handle POST requests to "/users" (process and store the submitted username):
   if (URL === "/users" && METHOD === "POST") {
     // Parse incoming request to extract the userName
     // To capture data received from the form, use the req.on() method:
-    // Store data chunks in an empty array called body
     let body = [];
 
     req.on("data", (chunk) => {
@@ -51,18 +47,41 @@ const server = http.createServer((req, res) => {
       // Use Buffer.concat() to combine the data chunks and convert them to a string
       // Then use split and take the second array element:
       const userName = Buffer.concat(body).toString().split("=")[1];
-      // The extracted userName can be stored in a (users.json) file:
-      // Store userName in (users.json) file in (lesson-two) branch
+      // The extracted userName can be stored in a 'users.json' file:
+      // Get the users array from 'users.json', push the new user, and store the new array in 'users.json'
+      const users = fs.readFileSync("users.json", "utf-8");
+      // Convert JSON format to a JavaScript object:
+      const usersArray = JSON.parse(users);
+      // Add the new user
+      usersArray.push(userName);
+      // Convert the JavaScript object back to JSON format:
+      const usersArrayJson = JSON.stringify(usersArray);
+      // Write the updated users array to 'users.json'
+      fs.writeFileSync("users.json", usersArrayJson);
     });
 
     res.end();
   }
 
-  // Third if statement to get all users when visiting ("/users" with GET method)
-  // Third statement in (lesson-two) branch
+  // Handle GET requests to "/users" to retrieve all users
+  if (URL === "/users" && METHOD === "GET") {
+    // Read 'users.json' to get all users:
+    const users = fs.readFileSync("users.json", "utf-8");
+    const usersArray = JSON.parse(users);
+    res.setHeader("Content-Type", "text/html");
+    res.write(`
+        <ul>
+        ${usersArray.map((user) => `<li>${user}</li>`).join("")}
+        </ul>
+    `);
 
-  return res.end(); // This line is required to end the response if no (if statements) conditions apply.
+    res.end();
+  }
+
+  return res.end(); // This line is required to end the response if no if-statement conditions apply.
 });
 
 // Use the listen method to listen for incoming requests on our PORT
 server.listen(PORT);
+
+// Go to lesson-03 to use Express Js framework to reducing CODE and focus about business and avoid Boring details
