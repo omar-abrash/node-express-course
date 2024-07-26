@@ -3,6 +3,7 @@
 // 1- How to create a server with Node.js without frameworks like (Express.js).
 // 2- How Node.js handles routes and methods for incoming requests.
 // 3- Installing nodemon in (devDependencies) to modify code without restarting the server.
+// 4- create (.gitigone) file to avoid pushing not required files to github.
 
 // Import the http module from Node.js to create our server:
 const http = require("node:http");
