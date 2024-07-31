@@ -16,3 +16,16 @@
 // `git switch branch-name` or `git checkout branch-name`
 
 // to know all branches in our project use ( git branch )
+
+// the populer command in GIT :
+
+// git status
+// git add .
+
+// git status
+
+// git commit -m "our commit ....."
+
+// git status
+
+// git push
