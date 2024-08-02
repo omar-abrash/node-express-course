@@ -1,47 +1,36 @@
-// Express Js Fundumentalis :
-// we will discusss :
-// 1- Install Express Js
-// 2- middleware fundumentals.
+// lesson-04
+// will discuss :
+// 1- How to make path filtering in middleware
+// 2- How to export and import variables and methods in Node.js
+// 3- How to use HTTP methods (GET, POST, etc.) in path filtering
 
-// before define express app should be install express !
-// run (npm i express) Or (npm i express --save-dev) In terminal
-// you can see express in package.json file : "dependencies": { "express": "^4.19.2"}
+// We can see a new folder in our project directory (routes).
+// It consists of two files (first.js, second.js).
+// Each one has many new routes (URLs) with different methods (.get, .post, etc.).
 
-// define express from express
+// Import express from express
 const express = require("express");
-// define our PORT
+// Define our PORT
 const PORT = 8080;
-// define our server Or app
+// Define our server or app
 const app = express();
 
-// This Area to use middleware to handle all incoming requests:
-// the main middleware is .use method
-// .use() without detrimned any path : accept all incoming Request
+// Import (firstRoutes, secondRoutes) from the (./routes) folder:
+const firstRoutes = require("./routes/first").firstRoutes;
+const secondRoutes = require("./routes/second").secondRoutes;
 
-// app.use(() => { console.log("Incomming Request ")});
-// app.use("/",()=> {}) with specephic path accep all incomming request in this path
+// Use the imported routes
+app.use("/first", firstRoutes);
+app.use("/second", secondRoutes);
 
-// the anonoumus function in the middleware consist of 3 params : (req,res,next)=> {}
-// req  : incoming request (object)
-// res  : response will send to client (object)
-// next : important method to move next middleware if busniess need that !
-
-app.use("/", (req, res, next) => {
-  console.log("First use middleware");
-  next();
-});
-
-app.use("/", (req, res, next) => {
-  console.log("Second use middleware");
-  res.status(200).send("you reach to second route");
-});
-
+// General middleware to catch any incoming request not applying to the previous routes ("/first", "/second")
 app.use((req, res) => {
-  console.log("404 Not found Route");
+  console.log("404 Not Found Route");
   res.status(404).end();
 });
 
-// end middleware area
+// End middleware area
 
-// use listen method to listen to all incomming request.
+// Use the listen method to listen to all incoming requests
+
 app.listen(PORT);
