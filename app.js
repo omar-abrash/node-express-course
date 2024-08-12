@@ -8,11 +8,11 @@ const express = require("express");
 const path = require("node:path");
 const PORT = 8080;
 
-const app = express();
-
 // Import (mainRoutes, usersRoutes) from the (./routes) folder:
 const mainRoutes = require("./routes/main").mainRoutes;
 const usersRoutes = require("./routes/users").usersRoutes;
+
+const app = express();
 
 // start middellware area :
 
