@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }
 
 header ul {
@@ -76,5 +76,5 @@ main form input[type="text"] {
 
 footer {
   height: 100px;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }

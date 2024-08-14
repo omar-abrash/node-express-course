@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }
 
 header ul {
@@ -85,5 +85,5 @@ main ul li {
 
 footer {
   height: 100px;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }

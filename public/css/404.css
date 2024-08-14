@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }
 
 header ul {
@@ -63,7 +63,11 @@ main {
   color: red;
 }
 
+main .wrong-link {
+  color: black;
+}
+
 footer {
   height: 100px;
-  background-color: #3cff00;
+  background-color: #a8ec93;
 }

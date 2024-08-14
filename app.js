@@ -32,8 +32,11 @@ app.use("/users", usersRoutes);
 
 // General middleware to catch any incoming request not applying to the previous routes ("/first", "/second")
 app.use((req, res) => {
-  const notFoundPage = path.join(__dirname, "./views/404.html");
-  res.status(404).sendFile(notFoundPage);
+  const notFoundPage = path.join(__dirname, "./views/404.ejs");
+  // handle url error page with templating engine :
+  const url = req.url;
+  // render worng URL with error templating engine :
+  res.status(404).render(notFoundPage, { url });
 });
 
 // End middleware area
