@@ -22,6 +22,7 @@ app.set("views", path.join(__dirname, "./views"));
 
 // define bodyParser package to use it in parsing incoming request body :
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // how use express.static to define static path if import style file in html
 app.use(express.static(path.join(__dirname, "./public")));
