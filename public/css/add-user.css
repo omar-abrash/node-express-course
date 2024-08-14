@@ -56,9 +56,22 @@ li a:hover {
 main {
   min-height: calc(100vh - 160px - 40px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+}
+
+main div {
+  margin-bottom: 20px;
+}
+
+main form input[type="text"] {
+  height: 30px;
+  width: 300px;
+  padding-left: 10px;
+  border-radius: 5px;
+  outline: none;
 }
 
 footer {

@@ -1,20 +1,27 @@
-// lesson-05:
+// lesson-06:
 // will discuss :
-// 1- how send html files with styling.
-// 2- how deals with express.static in middleware to define static import in html styling
-// 3- how use path module to define html file location in Server .
+// 1- How to Install and use Templating Engine to render Dynamic Data In HTML Pages.
+// 2- How to install and use body-parser package to parsing body request.
 
 const express = require("express");
 const path = require("node:path");
+const bodyParser = require("body-parser");
 const PORT = 8080;
-
-const app = express();
 
 // Import (mainRoutes, usersRoutes) from the (./routes) folder:
 const mainRoutes = require("./routes/main").mainRoutes;
 const usersRoutes = require("./routes/users").usersRoutes;
 
+const app = express();
+
 // start middellware area :
+
+// define templating engine EJS :
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views"));
+
+// define bodyParser package to use it in parsing incoming request body :
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // how use express.static to define static path if import style file in html
 app.use(express.static(path.join(__dirname, "./public")));

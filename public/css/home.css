@@ -56,9 +56,14 @@ li a:hover {
 main {
   min-height: calc(100vh - 160px - 40px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+}
+
+main div {
+  margin-bottom: 20px;
 }
 
 footer {

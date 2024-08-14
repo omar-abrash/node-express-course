@@ -6,9 +6,11 @@ const mainRoutes = express.Router();
 
 // to get home page in route /
 mainRoutes.get("/", (req, res, next) => {
-  // locate the mainPage using path module with .join method
-  const mainPage = path.join(__dirname, "../views/home.html");
-  res.status(200).sendFile(mainPage);
+  // locate the mainPage using path module with .join method ( Now will use Templating Engine to render some data :)
+  const mainPage = path.join(__dirname, "../views/home.ejs");
+  res
+    .status(200)
+    .render(mainPage, { title: "Main Page From EJS Templating Engine" });
 });
 
 module.exports = { mainRoutes };

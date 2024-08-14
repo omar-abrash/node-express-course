@@ -56,9 +56,31 @@ li a:hover {
 main {
   min-height: calc(100vh - 160px - 40px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+}
+
+main div {
+  margin-bottom: 20px;
+}
+
+main ul {
+  list-style: none;
+  width: 300px;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+main ul li {
+  padding: 10px;
+  height: 25px;
+  width: 250px;
+  margin-bottom: 10px;
+  background-color: #a8ec93;
 }
 
 footer {

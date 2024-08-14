@@ -23,6 +23,14 @@
 
     <main>
       <div>Users Page</div>
+
+      <div>
+        <ul>
+          <% users.forEach(function(name) { %>
+          <li><%= name %></li>
+          <% }); %>
+        </ul>
+      </div>
     </main>
 
     <footer>Footer</footer>
