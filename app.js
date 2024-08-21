@@ -13,7 +13,6 @@ app.use("/users", usersRouter);
 //
 //
 //
-
 app.use((error, req, res, next) => {
   // !error.statusCode && (error.statusCode = 500);
   if (!error.statusCode) {

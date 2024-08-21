@@ -1,22 +1,31 @@
+const db = require("../utils/database");
+
 class User {
   constructor(userEmail, userPassword) {
     this.email = userEmail;
     this.password = userPassword;
   }
   // static (excute static method without create new Object)
-  static getAllUsers() {
+  static async getAllUsers() {
     // connect with db to return all users
-    return "Get All Users";
+    const dbResult = await db.execute("SELECT * FROM users");
+    const [rows] = dbResult;
+    return rows;
   }
   // static (excute static method without create new Object)
-  static getUser(userId) {
-    // connect with db to get user depend on userId
-    return "Get User";
+  static async getUser(userId) {
+    const dbResult = await db.execute(`SELECT * FROM users WHERE id=${userId}`);
+    const [rows] = dbResult;
+    return rows;
   }
   // (excute public methoud after create new object)
-  addNewUser() {
+  async addNewUser() {
     // connect with db to add user
-    return "Add New User";
+    await db.execute(`INSERT INTO users (email,password) VALUES (?,?)`, [
+      this.email,
+      this.password,
+    ]);
+    return "add new user success";
   }
 
   //
