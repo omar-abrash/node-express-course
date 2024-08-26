@@ -1,7 +1,8 @@
 const db = require("../utils/database");
 
 class User {
-  constructor(userEmail, userPassword) {
+  constructor(userName, userEmail, userPassword) {
+    this.name = userName;
     this.email = userEmail;
     this.password = userPassword;
   }
@@ -21,7 +22,8 @@ class User {
   // (excute public methoud after create new object)
   async addNewUser() {
     // connect with db to add user
-    await db.execute(`INSERT INTO users (email,password) VALUES (?,?)`, [
+    await db.execute(`INSERT INTO users (name,email,password) VALUES (?,?,?)`, [
+      this.name,
       this.email,
       this.password,
     ]);

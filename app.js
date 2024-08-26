@@ -19,7 +19,7 @@ app.use((error, req, res, next) => {
     error.statusCode = 500;
   }
 
-  res.status(error.statusCode).json({ errors: error.errors });
+  res.status(error.statusCode).json({ error: error, message: error.message });
 });
 
 // end middleware area
